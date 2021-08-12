@@ -1,11 +1,11 @@
 import React from 'react'
 
-function ListCity() {
+function ListCities() {
     return (
         <div>
-            ListCity
+            Cities List
         </div>
     )
 }
 
-export default ListCity
+export default ListCities
