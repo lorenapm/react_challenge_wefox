@@ -6,13 +6,13 @@ import Header from "./components/Header";
 import AddCity from "./components/AddCity";
 import City from "./components/City";
 import ListCities from "./components/ListCities";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
     <Header/>
-    
-     
+
      <div className="container mt-3">
           <Switch>
             <Route exact path={["/", "/cities"]} component={ListCities} />
@@ -20,6 +20,8 @@ function App() {
             <Route path="/cities/:id" component={City} />
           </Switch>
         </div>
+
+    <Footer/>
     </>
   );
 }
