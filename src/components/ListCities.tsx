@@ -35,7 +35,7 @@ const getActiveCity = (city:any) => {
                         <li 
                         key={city.id}
                         className={"cities__list__item" + (city.id === cityIndex ? "active" : "")} 
-                        onClick={() => setCurrentCity(city)} key={city.id}>
+                        onClick={() => setCurrentCity(city)} >
                             <h3>{city.title}</h3>
                             </li>
                     ))}
@@ -44,7 +44,7 @@ const getActiveCity = (city:any) => {
                 <div className="city">
                     {currentCity ? (
                         <div>
-                            <h4>City</h4>
+                            <h4 className="city__title">City</h4>
                             <div>
                                 <label>
                                     <strong>Title:</strong>
@@ -54,16 +54,26 @@ const getActiveCity = (city:any) => {
                             <div>
               <label>
                 <strong>Description:</strong>
-              </label>{" "}
-              {currentCity.content}
+              </label>
+              <p>{currentCity.content}</p>
+            </div>
+            <div className="city__box_img">
+                <label>
+                    <strong>Image:</strong>
+                </label>
+                <img src={currentCity.image_url} alt={currentCity.title}/>
+
             </div>
 
-            <Link
-              to={"/cities/" + currentCity.id}
-              className="badge badge-warning"
-            >
-              Edit
-            </Link>
+            <div>
+                <Link
+                  to={"/cities/" + currentCity.id}
+                  className="badge badge-warning"
+                >
+                  Edit
+                </Link>
+            </div>
+
           </div>
         ) : (
           <div>

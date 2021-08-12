@@ -3,4 +3,5 @@ export default interface dataTypes {
     title: string,
     content: string,
     published?: boolean,
+    image_url: string,
 }; 
