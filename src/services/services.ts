@@ -7,7 +7,7 @@ const getAll = () => {
 };
 
 const get = (id:any) => {
-    return http.get(`/post/${id}`);
+    return http.get(`/posts/${id}`);
 };
 
 const create = (data: dataTypes) => {
