@@ -1,4 +1,5 @@
-import "../stylesheet/footer.css"
+
+import "../stylesheets/footer.css"
 import logo from "../images/wefox.jpg";
 
 function Footer() {

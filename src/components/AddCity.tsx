@@ -63,12 +63,14 @@ const newCities = () => {
             {submitted ? (
                 <div className="citySubmitted">
                     <h4 className="citySubmitted__title">Your next destination successfully!</h4>
-                    <button className="citySubmitted__button" onClick={newCities}>Add</button>
+                    <button className="citySubmitted__button" onClick={newCities}>Add new city
+                    </button>
+                    <a href="/cities" type="button">Go back</a>
                 </div>
-                ) : (
-                    <div className="upground">
-                        <h4 className="upground__title">Add your city</h4>
-                        <form className="upground__form" onSubmit={saveCities}>
+            ) : (
+                <div className="upground">
+                    <h4 className="upground__title">Add your city</h4>
+                    <form className="upground__form" >
                             <div className="title">
                                 <label className="title__title" htmlFor="title">City name*</label>
                                 <input 
@@ -94,7 +96,7 @@ const newCities = () => {
                                 required
                                 />
                             </div>
-                            <div className="image">
+                            {/* <div className="image">
                                 <label className="image__title" htmlFor="image">Image link*</label>
                                 <input
                                 type="text"
@@ -106,21 +108,17 @@ const newCities = () => {
                                 onChange={(handleInputChange)}
                                 required
                                 />
-                            </div>
+                            </div> */}
                            
                             <button
                             className="button"
                             type="submit"
-                            onClick={saveCities}
-                           
-                            >
+                            onClick={saveCities}>
                                 Submit
                             </button>
                         </form>
-                    </div>
+                </div>
                 )}
-
-
         </section>
     );
 };

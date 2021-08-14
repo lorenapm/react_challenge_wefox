@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import api from "../services/services";
 import { Link } from "react-router-dom";
 import dataTypes from "../types/types";
+import camper from "../images/camper.png";
+import "../stylesheets/listcities.css";
 
 const ListCities = () => {
     const [cities, setCities] = useState<Array<dataTypes>>([]);
@@ -21,24 +23,61 @@ const ListCities = () => {
             console.log(e);
         });
     };
-const getActiveCity = (city:any) => {
+
+    const refreshList = () => {
+      retrieveCities();
+      setCurrentCity(null);
+      setCityIndex(-1);
+    };
+
+    const setActiveCity = (city:any) => {
     setCurrentCity(city);
     setCityIndex(city.id);
-}
+};
+const removeAll = () => {
+  api.removeAll()
+  .then(response => {
+    console.log(response.data);
+    refreshList();
+  })
+  .catch(e => {
+    console.log(e);
+  });
+};
+
+
     return (
+      <>
+    <div className="box-title">
+      <h1 className="box-title__title"> Wefox travel challenge</h1>
+      <img className="box-title__icon" src={camper} alt="camper"/>
+    </div>
+    <h3 className="subtitle">
+      Travel with us. Create your favorite itinerary. Do we start with Madrid,
+      Barcelona and Berlin ... or not? You decide, we travel with you.
+    </h3>
         <div className="cities">
+        
             <div className="cities__list">
-                <h2 className="cities__list--title">Cities List</h2>
-                <ul className="cities__list--contain">
+                <h4 className="cities__list--title">Your cities list</h4>
+                <ul className="cities__list--contain list-group">
                     {cities && cities.map((city) => (
                         <li 
                         key={city.id}
                         className={"cities__list__item" + (city.id === cityIndex ? "active" : "")} 
-                        onClick={() => setCurrentCity(city)} >
-                            <h3>{city.title}</h3>
+                        onClick={() => setActiveCity(city)} 
+                         >
+                            {city.title}
                             </li>
                     ))}
                 </ul>
+
+                {/* <button className="button__remove"
+                onClick={removeAll}
+                >
+                  Remove all cities
+                </button> */}
+
                 </div>
                 <div className="city">
                     {currentCity ? (
@@ -46,7 +85,7 @@ const getActiveCity = (city:any) => {
                             <h4 className="city__title">City</h4>
                             <div>
                                 <label>
-                                    <strong>Title:</strong>
+                                    <strong>Title: </strong>
                                 </label>{""}
                                     {currentCity.title}
                             </div>
@@ -56,18 +95,14 @@ const getActiveCity = (city:any) => {
               </label>
               <p>{currentCity.content}</p>
             </div>
-            <div className="city__box_img">
-                <label>
-                    <strong>Image:</strong>
-                </label>
-                <img src={currentCity.image_url} alt={currentCity.title}/>
-
-            </div>
-
-            <div>
+              <label>
+                <strong>Image:</strong>
+              </label>
+              <img className="city__image" src={currentCity.image_url} alt={currentCity.title}/>
+            <div className="button">
                 <Link
                   to={"/cities/" + currentCity.id}
-                  className="badge badge-warning"
+                  className="link"
                 >
                   Edit
                 </Link>
@@ -82,6 +117,7 @@ const getActiveCity = (city:any) => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
