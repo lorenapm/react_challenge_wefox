@@ -1,4 +1,5 @@
 .container {
+  width: 100vw;
   background-color: #fafafa;
   padding: 20px 0 20px 0;
   display: flex;
@@ -96,5 +97,9 @@
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px;
-  border-radius: 10px;
+  border: solid 1px #545454;
+  border-radius: 15px;
+}
+.button {
+  width: 70px;
 }

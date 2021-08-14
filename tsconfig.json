@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/http-common.ts"  ]
 }

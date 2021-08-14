@@ -1,7 +1,8 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import api from "../services/services";
 import dataTypes from "../types/types";
-import City from './City';
+import "../stylesheets/addcity.css";
+
 
 const AddCity: React.FC = () => {
 const initialCityState = {
@@ -12,14 +13,6 @@ const initialCityState = {
 
 const [cities, setCities] = useState<dataTypes>(initialCityState);
 const [submitted, setSubmitted] = useState<boolean>(false);
-const [disabled, setDisabled] = useState<boolean>(true);
-
-
-useEffect(() => {
-    if (cities.title && cities.content && cities.image_url) {
-        setDisabled(false);
-    }
-}, [cities]);
 
 const handleInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,7 +21,8 @@ const handleInputChange = (
     setCities({ ...cities, [name]: value});
 };
 
-const saveCities = () => {
+const saveCities = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     let data = {
         id:null,
         title: cities.title,
@@ -62,14 +56,15 @@ const newCities = () => {
         <section className="addCity">
             {submitted ? (
                 <div className="citySubmitted">
+                    <div className="citySubmitted__hero"></div>
                     <h4 className="citySubmitted__title">Your next destination successfully!</h4>
                     <button className="citySubmitted__button" onClick={newCities}>Add new city
                     </button>
-                    <a href="/cities" type="button">Go back</a>
+                    <a className="citySubmitted__go" href="/cities" type="button">Go back</a>
                 </div>
             ) : (
                 <div className="upground">
-                    <h4 className="upground__title">Add your city</h4>
+                    <h2 className="upground__title">Add your next city</h2>
                     <form className="upground__form" >
                             <div className="title">
                                 <label className="title__title" htmlFor="title">City name*</label>
@@ -96,22 +91,22 @@ const newCities = () => {
                                 required
                                 />
                             </div>
-                            {/* <div className="image">
-                                <label className="image__title" htmlFor="image">Image link*</label>
+                            <div className="image">
+                                <label className="image__title" htmlFor="image_url">Image link*</label>
                                 <input
                                 type="text"
                                 className="image__input"
                                 id="image_url"
-                                name="content_url"
+                                name="image_url"
                                 placeholder="Image link"
-                                //value={cities.image_url}
+                                value={cities.image_url}
                                 onChange={(handleInputChange)}
                                 required
                                 />
-                            </div> */}
+                            </div>
                            
                             <button
-                            className="button"
+                            className="button__add"
                             type="submit"
                             onClick={saveCities}>
                                 Submit
