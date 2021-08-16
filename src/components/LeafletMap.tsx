@@ -12,8 +12,6 @@ const LeafletMap:React.FC = () => {
     const [currentCity, setCurrentCity] = useState<dataTypes | null>(null);
     const [cityIndex, setCityIndex] = useState<number>(-1);
 
-    
-
     const retrieveCities = () => {
         api.getAll()
         .then((response) => {
@@ -29,37 +27,20 @@ const LeafletMap:React.FC = () => {
         retrieveCities();
     }, []);
 
-    // useEffect(() => {
-    //     if (cities?.length > 0) {
-    //       setCurrentCity(cities[0]);
-    //     }
-    //   }, [cities, currentCity]);
-
-//     const refreshList = () => {
-//         retrieveCities();
-//         setCurrentCity(null);
-//         setCityIndex(-1);
-//       };
-  
-//       const setActiveCity = (city:any) => {
-//       setCurrentCity(city);
-//       setCityIndex(city.id);
-//   };
+  // I couldn't solve updating the map without creating an infinite loop. I choose not to refresh it.
 
 
    return (
-  
-<MapContainer 
+   <MapContainer 
      id="mapId"
      center={center}
      zoom={zoom}>
-         
-   <TileLayer
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  />
-  
-  {cities.map(city => (
+         <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    />
+    
+    {cities.map(city => (
     <Marker 
       key={city.id} 
       position={[city.lat, city.long]}
@@ -71,8 +52,8 @@ const LeafletMap:React.FC = () => {
          </Popup>
     </Marker>
      
-  ))}
-</MapContainer>
+    ))}
+    </MapContainer>
 );
 }
 export default LeafletMap

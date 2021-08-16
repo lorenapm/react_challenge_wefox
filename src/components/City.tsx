@@ -2,6 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import api from "../services/services";
 import dataTypes from "../types/types";
+import "../stylesheets/listcities.css"
 
 interface RouterProps { id:string }
 type Props = RouteComponentProps<RouterProps>;
@@ -150,7 +151,7 @@ const City: React.FC<Props> = (props: Props) => {
         ) : (
         <div>
             <br/>
-            <p>Please, click on a city...</p>
+            <p className="message">Please, click on a city...</p>
         </div>
         )} 
       </div>
