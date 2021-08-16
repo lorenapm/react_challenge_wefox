@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { LatLngTuple } from 'leaflet';
 import dataTypes from "../types/types";
@@ -12,9 +12,7 @@ const LeafletMap:React.FC = () => {
     const [currentCity, setCurrentCity] = useState<dataTypes | null>(null);
     const [cityIndex, setCityIndex] = useState<number>(-1);
 
-    useEffect(() => {
-        retrieveCities();
-    }, []);
+    
 
     const retrieveCities = () => {
         api.getAll()
@@ -26,17 +24,27 @@ const LeafletMap:React.FC = () => {
             console.log(e);
         });
     };
-
-    const refreshList = () => {
+    
+    useEffect(() => {
         retrieveCities();
-        setCurrentCity(null);
-        setCityIndex(-1);
-      };
+    }, []);
+
+    // useEffect(() => {
+    //     if (cities?.length > 0) {
+    //       setCurrentCity(cities[0]);
+    //     }
+    //   }, [cities, currentCity]);
+
+//     const refreshList = () => {
+//         retrieveCities();
+//         setCurrentCity(null);
+//         setCityIndex(-1);
+//       };
   
-      const setActiveCity = (city:any) => {
-      setCurrentCity(city);
-      setCityIndex(city.id);
-  };
+//       const setActiveCity = (city:any) => {
+//       setCurrentCity(city);
+//       setCityIndex(city.id);
+//   };
 
 
    return (
@@ -60,9 +68,7 @@ const LeafletMap:React.FC = () => {
              <h4>{city.title}</h4>
              <p>Latitude: {city.lat}</p>
              <p>Longitude: {city.long}</p>
-
          </Popup>
-
     </Marker>
      
   ))}
