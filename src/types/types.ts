@@ -4,4 +4,6 @@ export default interface dataTypes {
     content: string,
     published?: boolean,
     image_url: string,
+    lat: number,
+    long:number,
 }; 

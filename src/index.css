@@ -4,3 +4,7 @@
   font-family: inherit;
   text-decoration: none;
 }
+#mapId {
+  height: 60vh;
+  width: 100vw;
+}

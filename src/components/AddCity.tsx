@@ -9,6 +9,8 @@ const initialCityState = {
     title: "",
     content: "",
     image_url: "",
+    lat: 0,
+    long: 0,
 };
 
 const [cities, setCities] = useState<dataTypes>(initialCityState);
@@ -28,6 +30,8 @@ const saveCities = (e: React.MouseEvent<HTMLButtonElement>) => {
         title: cities.title,
         content: cities.content,
         image_url: cities.image_url,
+        lat: cities.lat,
+        long: cities.long,
     };
 
     api
@@ -38,6 +42,8 @@ const saveCities = (e: React.MouseEvent<HTMLButtonElement>) => {
             title: response.data.title,
             content: response.data.content,
             image_url: response.data.image_url,
+            lat: response.data.lat,
+            long: response.data.long,
         });
         setSubmitted(true);
         console.log(response.data);
@@ -101,6 +107,32 @@ const newCities = () => {
                                 placeholder="Image link"
                                 value={cities.image_url}
                                 onChange={(handleInputChange)}
+                                required
+                                />
+                            </div>
+                            <div className="lat">
+                                <label className="lat__title" htmlFor="lat">Latitude*</label>
+                                <input 
+                                type="text"
+                                className="lat__input"
+                                id="lat"
+                                name="lat"
+                                placeholder= "48.865572"
+                                value={cities.lat}
+                                onChange={handleInputChange}
+                                required
+                                />
+                            </div>
+                            <div className="long">
+                                <label className="long__title" htmlFor="lat">Longitude*</label>
+                                <input 
+                                type="text"
+                                className="long__input"
+                                id="long"
+                                name="long"
+                                placeholder= "2.283523"
+                                value={cities.long}
+                                onChange={handleInputChange}
                                 required
                                 />
                             </div>
