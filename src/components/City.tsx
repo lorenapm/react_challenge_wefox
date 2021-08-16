@@ -13,6 +13,8 @@ const City: React.FC<Props> = (props: Props) => {
         content: "",
         image_url: "",
         published: false,
+        lat: 0,
+        long: 0,
     };
 
     const [currentCity, setCurrentCity] = useState<dataTypes>(initialCityState);
@@ -104,6 +106,33 @@ const City: React.FC<Props> = (props: Props) => {
                         onChange={(handleInputChange)}
                         />
                     </div> 
+                    <div className="lat">
+                        <label className="lat__title" htmlFor="lat">Latitude*</label>
+                        <input 
+                        type="text"
+                        className="lat__input"
+                        id="lat"
+                        name="lat"
+                        placeholder= "48.865572"
+                        value={currentCity.lat}
+                        onChange={handleInputChange}
+                        required
+                        />
+                    </div>
+                    <div className="long">
+                        <label className="long__title" htmlFor="lat">Longitude*</label>
+                        <input 
+                        type="text"
+                        className="long__input"
+                        id="long"
+                        name="long"
+                        placeholder= "2.283523"
+                        value={currentCity.long}
+                        onChange={handleInputChange}
+                        required
+                        />
+                        </div>
+
                 </form>
   
             <button className="button__edit" onClick={deleteCity}>
