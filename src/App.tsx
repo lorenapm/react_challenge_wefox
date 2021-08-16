@@ -1,8 +1,9 @@
 import { Switch, Route } from "react-router-dom";
-import './stylesheets/App.css';
+import './';
 
 
 import Header from "./components/Header";
+import MapCities from "./components/MapCities";
 import AddCity from "./components/AddCity";
 import City from "./components/City";
 import ListCities from "./components/ListCities";

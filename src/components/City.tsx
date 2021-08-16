@@ -23,7 +23,7 @@ const City: React.FC<Props> = (props: Props) => {
         .get(id)
         .then(response => {
             setCurrentCity(response.data);
-            console.log(response.data)
+            // console.log(response.data)
         })
         .catch(e => {
             console.log(e);
@@ -43,7 +43,7 @@ const City: React.FC<Props> = (props: Props) => {
         api
         .update(currentCity.id, currentCity)
         .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             setMessage("Your city was updated successfully!")
         })
         .catch(e => {
