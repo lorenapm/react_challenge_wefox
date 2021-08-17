@@ -9,8 +9,7 @@ const zoom:number = 4;
 
 const LeafletMap:React.FC = () => {
     const [cities, setCities] = useState<Array<dataTypes>>([]);
-    const [currentCity, setCurrentCity] = useState<dataTypes | null>(null);
-    const [cityIndex, setCityIndex] = useState<number>(-1);
+ 
 
     const retrieveCities = () => {
         api.getAll()
@@ -27,9 +26,6 @@ const LeafletMap:React.FC = () => {
         retrieveCities();
     }, []);
 
-  // I couldn't solve updating the map without creating an infinite loop. I choose not to refresh it.
-
-
    return (
    <MapContainer 
      id="mapId"
@@ -39,7 +35,6 @@ const LeafletMap:React.FC = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     />
-    
     {cities.map(city => (
     <Marker 
       key={city.id} 

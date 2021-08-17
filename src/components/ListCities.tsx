@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import dataTypes from "../types/types";
 import camper from "../images/camper.png";
 import "../stylesheets/listcities.css";
+import LeafletMap from "./LeafletMap";
 
 const ListCities = () => {
     const [cities, setCities] = useState<Array<dataTypes>>([]);
@@ -58,7 +59,7 @@ const removeAll = () => {
       Barcelona and Berlin ... or not? You decide, we travel with you.
     </h3>
         <div className="cities">
-        
+        <LeafletMap/>
             <div className="cities__list">
                 <h4 className="cities__list--title">Your cities list</h4>
                 <ul className="cities__list--contain list-group">

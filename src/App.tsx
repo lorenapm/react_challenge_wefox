@@ -13,7 +13,7 @@ const App:React.FC = () => {
   return (
     <>
     <Header/>
-    <LeafletMap/>
+   
      <div className="container mt-3">
           <Switch>
             <Route exact path={["/", "/cities"]} component={ListCities} />
