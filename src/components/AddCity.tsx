@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import api from "../services/services";
 import dataTypes from "../types/types";
 import "../stylesheets/addcity.css";
+import LeafletMap from './LeafletMap';
 
 
 const AddCity: React.FC = () => {

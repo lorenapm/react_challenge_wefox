@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { LatLngTuple } from 'leaflet';
 import dataTypes from "../types/types";
@@ -10,7 +10,6 @@ const zoom:number = 4;
 const LeafletMap:React.FC = () => {
     const [cities, setCities] = useState<Array<dataTypes>>([]);
  
-
     const retrieveCities = () => {
         api.getAll()
         .then((response) => {
@@ -25,7 +24,7 @@ const LeafletMap:React.FC = () => {
     useEffect(() => {
         retrieveCities();
     }, []);
-
+    
    return (
    <MapContainer 
      id="mapId"

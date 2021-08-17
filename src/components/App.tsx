@@ -1,13 +1,11 @@
 import { Switch, Route } from "react-router-dom";
-import './';
+import '..';
 
-
-import Header from "./components/Header";
-import LeafletMap from "./components/LeafletMap";
-import AddCity from "./components/AddCity";
-import City from "./components/City";
-import ListCities from "./components/ListCities";
-import Footer from "./components/Footer";
+import Header from "./Header";
+import AddCity from "./AddCity";
+import City from "./City";
+import ListCities from "./ListCities";
+import Footer from "./Footer";
 
 const App:React.FC = () => {
   return (

@@ -7,7 +7,6 @@
   z-index: 1000;
   display: flex;
   flex-direction: row;
-  justify-content: first baseline;
 }
 .header__logo {
   width: 200px;
