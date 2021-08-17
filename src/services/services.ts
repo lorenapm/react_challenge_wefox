@@ -3,7 +3,6 @@ import dataTypes from "../types/types";
 
 const getAll = () => {
     return http.get("/posts");
-    
 };
 
 const get = (id:any) => {

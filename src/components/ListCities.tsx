@@ -36,17 +36,6 @@ const ListCities = () => {
     setCurrentCity(city);
     setCityIndex(city.id);
 };
-const removeAll = () => {
-  api.removeAll()
-  .then(response => {
-    console.log(response.data);
-    refreshList();
-  })
-  .catch(e => {
-    console.log(e);
-  });
-};
-
 
     return (
       <>
@@ -73,13 +62,6 @@ const removeAll = () => {
                             </li>
                     ))}
                 </ul>
-
-                {/* <button className="button__remove"
-                onClick={removeAll}
-                >
-                  Remove all cities
-                </button> */}
-
                 </div>
                 <div className="city">
                     {currentCity ? (
