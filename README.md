@@ -1,4 +1,7 @@
 # wefox Frontend Challenge
+This is my challenge to the Mentorship Program for Frontend Developers at Wefox. Are you ready to travel with us?
+
+I have never work before with Docker, Typescritp o Axios...I have had fun and learned a lot! Thank you Wefox for this challenge and opportunity.
 
 **This project is a template for the challenge, you can change all the files you consider change**, it was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
