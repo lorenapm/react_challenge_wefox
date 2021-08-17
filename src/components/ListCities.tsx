@@ -19,7 +19,6 @@ const ListCities = () => {
         api.getAll()
         .then((response) => {
             setCities(response.data);
-            console.log(response.data)
         })
         .catch((e) => {
             console.log(e);
