@@ -1,5 +1,8 @@
 # wefox Frontend Challenge
+
 This is my challenge to the Mentorship Program for Frontend Developers at Wefox. Are you ready to travel with us?
+
+<img src="src/images/screenshot1.png">
 
 I have never work before with Docker, Typescritp o Axios...I have had fun and learned a lot! Thank you Wefox for this challenge and opportunity.
 
